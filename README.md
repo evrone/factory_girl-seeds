@@ -1,6 +1,7 @@
-# FactoryGirl::Seeds
+# FactoryGirl Seeds
 
-TODO: Write a gem description
+Make your test suite run time upto 2x faster and even more! factory_girl is a very usefull gem
+for creating records in your DB easily but also is very sloooow. This small repo helps fix that problem.
 
 ## Installation
 
@@ -12,13 +13,30 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install factory_girl-seeds
-
 ## Usage
 
-TODO: Write usage instructions here
+Create records before test suite:
+
+```ruby
+FactoryGirl::SeedGenerator.create(:user, name: "John Appleseed")
+```
+
+And then use in other factory definitions
+
+```ruby
+FactoryGirl.define do
+  factory :post do
+    title "Demo"
+    user { seed(:user) }
+  end
+end
+```
+
+or in specs
+
+```ruby
+@user = seed(:user)
+```
 
 ## Contributing
 
