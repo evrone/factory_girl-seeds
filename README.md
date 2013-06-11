@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/evrone/factory_girl-seeds.png)](https://codeclimate.com/github/evrone/factory_girl-seeds)
+
 # FactoryGirl Seeds
 
 Make your test suite run time upto 2x faster and even more! factory_girl is a very usefull gem
