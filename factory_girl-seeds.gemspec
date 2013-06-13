@@ -7,9 +7,9 @@ Gem::Specification.new do |gem|
   gem.name          = "factory_girl-seeds"
   gem.version       = FactoryGirl::Seeds::VERSION
   gem.authors       = ["Alexander Balashov"]
-  gem.email         = ["divineforest@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.email         = ["technoforest@gmail.com"]
+  gem.description   = %q{Preseed reusable data for factory girl}
+  gem.summary       = %q{Make your test suite run time upto 2x faster and even more!}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
