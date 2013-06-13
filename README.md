@@ -9,7 +9,9 @@ for creating records in your DB easily but also is very sloooow. This small repo
 
 Add this line to your application's Gemfile:
 
-    gem 'factory_girl-seeds', github: 'evrone/factory_girl-seeds'
+    group :test do
+      gem 'factory_girl-seeds', github: 'evrone/factory_girl-seeds'
+    end
 
 And then execute:
 
