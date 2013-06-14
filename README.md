@@ -6,6 +6,8 @@ Do you know that creating records in DB through factory_girl can take up to 50% 
 
 This tiny gem helps fix that problem by reusing data preloaded before running test suite.
 
+![](seed.jpg)
+
 ## Installation
 
 Add this line to your application's Gemfile:
