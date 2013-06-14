@@ -2,30 +2,33 @@
 
 # FactoryGirl Seeds
 
-Make your test suite run time upto 2x faster and even more! factory_girl is a very usefull gem
-for creating records in your DB easily but also is very sloooow. This small repo helps fix that problem.
+Do you know that creating records in DB through factory_girl can take up to 50% of total spec run time? And even more!
+
+This tiny gem helps fix that problem by reusing data preloaded before running test suite.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    group :test do
-      gem 'factory_girl-seeds', github: 'evrone/factory_girl-seeds'
-    end
-
-And then execute:
-
-    $ bundle
+```ruby
+group :test do
+  gem 'factory_girl-seeds', github: 'evrone/factory_girl-seeds'
+end
+```
 
 ## Usage
 
-Create records before test suite:
+### 1. Create records before test suite
 
 ```ruby
 FactoryGirl::SeedGenerator.create(:user, name: "John Appleseed")
 ```
 
-And then use in other factory definitions
+For example if you are using rspec then add this to ```config.before(:suite)```.
+
+### 2. Use in factory definitions
+
+This is the most important step because most of time factory_girl spends on creating associations which in turn also create associations and so on recursively.
 
 ```ruby
 FactoryGirl.define do
@@ -36,11 +39,27 @@ FactoryGirl.define do
 end
 ```
 
-or in specs
+### 3. Use in it blocks.
+
+Also if you need standard factory without overriding attributes then do not create records. Just use one from preloaded seeds.
 
 ```ruby
-@user = seed(:user)
+it "should do something" do
+  user = FactoryGirl.seed(:user)
+
+  # your code here
+end
 ```
+
+Short DSL also available:
+
+```ruby
+user = seed(:user)
+```
+
+## How this works?
+
+```FactoryGirl::SeedGenerator.create``` method creates record in DB before transaction begins. Then ```it``` block starts transaction so when you update record returned by ```FactoryGirl.seed``` it is wrapped in transaction. This guarantees that every ```it``` block works with clean record.
 
 ## Contributing
 
