@@ -57,7 +57,7 @@ Short DSL also available:
 user = seed(:user)
 ```
 
-## How this works?
+## How it works?
 
 ```FactoryGirl::SeedGenerator.create``` method creates record in DB before transaction begins. Then ```it``` block starts transaction so when you update record returned by ```FactoryGirl.seed``` it is wrapped in transaction. This guarantees that every ```it``` block works with clean record.
 
