@@ -39,7 +39,7 @@ FactoryGirl.define do
 end
 ```
 
-### 3. Use in it blocks.
+### 3. Use in `it` blocks.
 
 Also if you need standard factory without overriding attributes then do not create records. Just use one from preloaded seeds.
 
