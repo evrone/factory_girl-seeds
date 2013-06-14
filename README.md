@@ -2,7 +2,7 @@
 
 # FactoryGirl Seeds
 
-Do you know that creating records in DB through factory_girl can take up to 50% of total spec run time? And even more!
+Don't like factory_girl because it is slow? Do you know that creating records in DB through factory_girl can take up to 50% of total spec run time? And even more!
 
 This tiny gem helps fix that problem by reusing data preloaded before running test suite.
 
