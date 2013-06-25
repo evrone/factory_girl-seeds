@@ -14,7 +14,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :test do
-  gem 'factory_girl-seeds', github: 'evrone/factory_girl-seeds'
+  gem 'factory_girl-seeds'
 end
 ```
 
