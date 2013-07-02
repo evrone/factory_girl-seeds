@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["technoforest@gmail.com"]
   gem.description   = %q{Preseed reusable data for factory girl}
   gem.summary       = %q{Make your test suite run time upto 2x faster and even more!}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/evrone/factory_girl-seeds"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
