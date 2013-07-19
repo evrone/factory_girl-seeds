@@ -18,7 +18,7 @@ module FactoryGirl
 
       if seed_id
         seed_class = @classes[factory_name]
-        seed_class.find_by_id(seed_id) || create(factory_name)
+        seed_class.where(id: seed_id).first || create(factory_name)
       else
         create(factory_name)
       end
