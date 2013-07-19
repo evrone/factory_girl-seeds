@@ -30,11 +30,12 @@ module FactoryGirl
   module Syntax
     module SeedMethods
       def seed(factory_name)
-        if Rails.env.test?
-          FactoryGirl::SeedGenerator[factory_name]
-        else
+        if defined?(Rails) && !Rails.env.test?
           FactoryGirl.create(factory_name)
+          return
         end
+
+        FactoryGirl::SeedGenerator[factory_name]
       end
     end
   end
