@@ -32,10 +32,9 @@ module FactoryGirl
       def seed(factory_name)
         if defined?(Rails) && !Rails.env.test?
           FactoryGirl.create(factory_name)
-          return
+        else
+          FactoryGirl::SeedGenerator[factory_name]
         end
-
-        FactoryGirl::SeedGenerator[factory_name]
       end
     end
   end
