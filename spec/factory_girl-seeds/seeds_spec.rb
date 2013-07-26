@@ -6,3 +6,11 @@ describe FactoryGirl::SeedGenerator do
     expect(seeded).to eq(seed(:user))
   end
 end
+
+describe FactoryGirl do
+  describe ".seed" do
+    it do
+      expect(FactoryGirl.seed(:user)).to be
+    end
+  end
+end

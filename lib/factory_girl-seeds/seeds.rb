@@ -42,4 +42,4 @@ end
 
 FactoryGirl::Syntax::Methods.send(:include, FactoryGirl::Syntax::SeedMethods)
 FactoryGirl::SyntaxRunner.send(:include, FactoryGirl::Syntax::SeedMethods)
-FactoryGirl.send(:include, FactoryGirl::Syntax::SeedMethods)
+FactoryGirl.send(:extend, FactoryGirl::Syntax::SeedMethods)
