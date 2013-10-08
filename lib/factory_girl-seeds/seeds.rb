@@ -1,3 +1,5 @@
+require 'factory_girl'
+
 module FactoryGirl
   class SeedGenerator
     @ids = {}
