@@ -23,7 +23,7 @@ end
 ### 1. Create records before test suite
 
 ```ruby
-FactoryGirl::SeedGenerator.create(:user, name: "John Appleseed")
+FactoryGirl::SeedGenerator.create(:user, name: "Carlos Castaneda")
 ```
 
 For example if you are using rspec then add this to ```config.before(:suite)```.
