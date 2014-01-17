@@ -8,6 +8,29 @@ This tiny gem helps fix that problem by reusing data preloaded before running te
 
 ![](seed.jpg)
 
+## Benchmark
+
+Without seeds:
+
+```
+Finished in 4 minutes 38.7 seconds
+1402 examples, 0 failures, 0 pending
+```
+
+With seeds:
+
+```
+Finished in 2 minutes 40.6 seconds
+1402 examples, 0 failures, 0 pending
+```
+
+```ruby
+>> (2.minutes + 40.6.seconds) / (4.minutes + 38.7.seconds)
+=> 0.5762468604233943
+```
+
+So it is just about 58% of time before seeds optimization :)
+
 ## Installation
 
 Add this line to your application's Gemfile:
