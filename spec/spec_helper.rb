@@ -17,6 +17,10 @@ class User < ActiveRecord::Base;end
 FactoryGirl.define do
   factory :user do
     name "AB"
+
+    trait :david do
+      name 'David'
+    end
   end
 end
 
