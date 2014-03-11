@@ -17,6 +17,11 @@ describe FactoryGirl::SeedGenerator do
       seed = klass.create(:user, :david)
       expect(seed.name).to eql 'David'
     end
+
+    it "seeds with attributes and traits" do
+      seed = klass.create(:user, :david, nickname: 'Goliath')
+      expect(seed.name).to eql 'David'
+    end
   end
 end
 

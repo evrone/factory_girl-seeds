@@ -5,8 +5,8 @@ module FactoryGirl
     @ids = {}
     @classes = {}
 
-    def self.create(factory_name, attributes={})
-      model = FactoryGirl.create(factory_name, attributes)
+    def self.create(factory_name, *attributes)
+      model = FactoryGirl.create(factory_name, *attributes)
       @ids[factory_name] = model.id
       @classes[factory_name] = model.class
 
