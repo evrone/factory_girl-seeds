@@ -82,6 +82,36 @@ Short DSL also available:
 user = seed(:user)
 ```
 
+### 4. Using Factory Girl traits
+
+You can create models via factories and traits (like `create(:user, admin)`), but you *can not* obtain it with the `seed(:user, :admin)`. To be able to obtain a record it is recommended to define specific factories with a set of tratis and unique names just like in the example in [Getting stated](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#traits) guide:
+
+```ruby
+factory :user do
+  name "Friendly User"
+  login { name }
+
+  trait :male do
+    name   "John Doe"
+    gender "Male"
+  end
+
+  trait :female do
+    name   "Jane Doe"
+    gender "Female"
+  end
+
+  trait :admin do
+    admin true
+  end
+
+  factory :male_admin,   traits: [:male, :admin]
+  factory :female_admin, traits: [:admin, :female]
+end
+```
+
+When factories declared in this manner, you can obtain a record with `seed(:male_admin)`
+
 ## How it works?
 
 ```FactoryGirl::SeedGenerator.create``` method creates record in DB before transaction begins. Then ```it``` block starts transaction so when you update record returned by ```FactoryGirl.seed``` it is wrapped in transaction. This guarantees that every ```it``` block works with clean record.
