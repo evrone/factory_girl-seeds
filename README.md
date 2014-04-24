@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/evrone/factory_girl-seeds.svg?branch=master)](https://travis-ci.org/evrone/factory_girl-seeds)
 [![Code Climate](https://codeclimate.com/github/evrone/factory_girl-seeds.png)](https://codeclimate.com/github/evrone/factory_girl-seeds)
 
 # FactoryGirl Seeds
