@@ -85,7 +85,7 @@ user = seed(:user)
 
 ### 4. Using Factory Girl traits
 
-You can create models via factories and traits (like `create(:user, admin)`), but you *can not* obtain it with the `seed(:user, :admin)`. To be able to obtain a record it is recommended to define specific factories with a set of tratis and unique names just like in the example in [Getting stated](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#traits) guide:
+You can create models via factories and traits (like `create(:user, admin)`), but you *can not* obtain it with the `seed(:user, :admin)`. To be able to obtain a record it is recommended to define specific factories with a set of traits and unique names just like in the example in [Getting stated](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#traits) guide:
 
 ```ruby
 factory :user do
