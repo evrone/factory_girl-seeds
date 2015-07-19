@@ -13,8 +13,8 @@ module FactoryGirl
 
     def self.[](factory_name)
       klass = factory_name.to_s.classify.constantize
-      seed_id = @primary_keys[factory_name]
-      seed_id && klass.find_by(klass.primary_key => seed_id) || create(factory_name)
+      s_id = @primary_keys[factory_name]
+      s_id && klass.find_by(klass.primary_key => s_id) || create(factory_name)
     end
   end
 end
