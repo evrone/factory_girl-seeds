@@ -31,5 +31,9 @@ describe FactoryGirl do
     it do
       expect(FactoryGirl.seed(:user)).to be
     end
+
+    it do
+      expect(FactoryGirl.seed(:user, name: "dev").name).to eq("dev")
+    end
   end
 end
