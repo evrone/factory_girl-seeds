@@ -2,26 +2,19 @@ require 'factory_girl'
 
 module FactoryGirl
   class SeedGenerator
-    @ids = {}
-    @classes = {}
+    @primary_keys = {}
 
     def self.create(factory_name, *attributes)
       model = FactoryGirl.create(factory_name, *attributes)
-      @ids[factory_name] = model.id
-      @classes[factory_name] = model.class
+      @primary_keys[factory_name] = model[model.class.primary_key]
 
       model
     end
 
     def self.[](factory_name)
-      seed_id = @ids[factory_name]
-
-      if seed_id
-        seed_class = @classes[factory_name]
-        seed_class.where(seed_class.primary_key => seed_id).first || create(factory_name)
-      else
-        create(factory_name)
-      end
+      klass = factory_name.to_s.classify.constantize
+      s_id = @primary_keys[factory_name]
+      s_id && klass.find_by(klass.primary_key => s_id) || create(factory_name)
     end
   end
 end
