@@ -26,10 +26,10 @@ describe FactoryGirl::SeedGenerator do
   end
 end
 
-describe FactoryGirl do
+describe FactoryBot do
   describe ".seed" do
     it do
-      expect(FactoryGirl.seed(:user)).to be
+      expect(FactoryBot.seed(:user)).to be
     end
   end
 end
