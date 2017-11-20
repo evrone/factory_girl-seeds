@@ -1,9 +1,8 @@
-require 'factory_girl'
+require 'factory_bot'
 require 'active_record'
 require 'factory_girl-seeds'
 
-ActiveRecord::Base.configurations = {'test' => {:adapter => 'sqlite3', :database => ':memory:'}}
-ActiveRecord::Base.establish_connection('test')
+ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':memory:')
 
 ActiveRecord::Migration.verbose = false
 ActiveRecord::Schema.define(version: 0) do
@@ -15,7 +14,7 @@ end
 
 class User < ActiveRecord::Base;end
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     name "AB"
 
@@ -26,5 +25,5 @@ FactoryGirl.define do
 end
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end

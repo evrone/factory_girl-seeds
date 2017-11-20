@@ -1,4 +1,4 @@
-require 'factory_girl'
+require 'factory_bot'
 
 module FactoryGirl
   class SeedGenerator
@@ -6,7 +6,7 @@ module FactoryGirl
     @classes = {}
 
     def self.create(factory_name, *attributes)
-      model = FactoryGirl.create(factory_name, *attributes)
+      model = FactoryBot.create(factory_name, *attributes)
       @ids[factory_name] = model.id
       @classes[factory_name] = model.class
 
@@ -31,7 +31,7 @@ module FactoryGirl
     module SeedMethods
       def seed(factory_name)
         if defined?(Rails) && !Rails.env.test?
-          FactoryGirl.create(factory_name)
+          FactoryBot.create(factory_name)
         else
           FactoryGirl::SeedGenerator[factory_name]
         end
@@ -40,6 +40,6 @@ module FactoryGirl
   end
 end
 
-FactoryGirl::Syntax::Methods.send(:include, FactoryGirl::Syntax::SeedMethods)
-FactoryGirl::SyntaxRunner.send(:include, FactoryGirl::Syntax::SeedMethods)
-FactoryGirl.send(:extend, FactoryGirl::Syntax::SeedMethods)
+FactoryBot::Syntax::Methods.send(:include, FactoryGirl::Syntax::SeedMethods)
+FactoryBot::SyntaxRunner.send(:include, FactoryGirl::Syntax::SeedMethods)
+FactoryBot.send(:extend, FactoryGirl::Syntax::SeedMethods)
