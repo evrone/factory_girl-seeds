@@ -1,15 +1,21 @@
+# PLEASE NOTE, THIS PROJECT IS NO LONGER BEING MAINTAINED
+# FactoryGirl Seeds
+
 [![Build Status](https://travis-ci.org/evrone/factory_girl-seeds.svg?branch=master)](https://travis-ci.org/evrone/factory_girl-seeds)
 [![Code Climate](https://codeclimate.com/github/evrone/factory_girl-seeds.png)](https://codeclimate.com/github/evrone/factory_girl-seeds)
 
-# FactoryGirl Seeds
+![](readme_content/seed.jpg)
 
 Don't like factory_girl because it is slow? Do you know that creating records in DB through factory_girl can take up to 50% of total spec run time? And even more!
 
 This tiny gem helps fix that problem by reusing data preloaded before running test suite.
 
-![](seed.jpg)
+<a href="https://evrone.com/?utm_source=github.com">
+  <img src="https://evrone.com/logo/evrone-sponsored-logo.png"
+       alt="Sponsored by Evrone" width="231">
+</a>
 
-## Benchmark
+## Demo
 
 Without seeds:
 
@@ -32,7 +38,9 @@ Finished in 2 minutes 40.6 seconds
 
 So it is just about 58% of time before seeds optimization :)
 
-## Installation
+
+## Getting Started
+### Installation
 
 Add this line to your application's Gemfile:
 
@@ -42,7 +50,7 @@ group :test do
 end
 ```
 
-## Usage
+### Usage
 
 ### 1. Create records before test suite
 
@@ -113,14 +121,29 @@ end
 
 When factories declared in this manner, you can obtain a record with `seed(:male_admin)`
 
-## How it works?
-
-```FactoryGirl::SeedGenerator.create``` method creates record in DB before transaction begins. Then ```it``` block starts transaction so when you update record returned by ```FactoryGirl.seed``` it is wrapped in transaction. This guarantees that every ```it``` block works with clean record.
+```FactoryGirl::SeedGenerator.create``` method creates record in DB before transaction begins. 
+Then ```it``` block starts transaction so when you update record returned by ```FactoryGirl.seed``` 
+it is wrapped in transaction. This guarantees that every ```it``` block works with clean record.
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Please read [Code of Conduct](CODE-OF-CONDUCT.md) and [Contributing Guidelines](CONTRIBUTING.md) for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, 
+see the [tags on this repository](https://github.com/evrone/factory_girl-seeds/tags). 
+
+## Changelog
+
+The changelog is [here](CHANGELOG.md).
+
+## Authors
+
+* [Alexander Balashov](https://github.com/divineforest) - *Initial work*
+
+See also the list of [contributors](https://github.com/evrone/factory_girl-seeds/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
