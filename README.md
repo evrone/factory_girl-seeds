@@ -1,3 +1,4 @@
+# PLEASE NOTE, THIS PROJECT IS NO LONGER BEING MAINTAINED
 # FactoryGirl Seeds
 
 [![Build Status](https://travis-ci.org/evrone/factory_girl-seeds.svg?branch=master)](https://travis-ci.org/evrone/factory_girl-seeds)
